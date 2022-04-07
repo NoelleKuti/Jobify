@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react'
-import { Logo } from '../components'
+import { Logo, FormRow, Alert } from '../components'
 import Wrapper from '../assets/wrappers/RegisterPage' 
-import { FormRow } from '../components'
+
 
 const initialState = {
   name: '',
   email: '',
   password: '',
   isMember: true,
+  showAlert: false
 }
 
 const Register = () => {
   const [values, setValues] = useState(initialState);
 
   const handleChange = (e) => {
-    console.log(e.target);
+    setValues({ ...values, [e.target.name]: e.target.value})
   }
  
   const onSubmit = (e) => {
@@ -24,10 +25,11 @@ const Register = () => {
   
   return (
     <Wrapper className='full-page'>
-        <form className='form'>
+        <form className='form' onSubmit={onSubmit}>
           <Logo />
           <h3>Login</h3>
-          
+          {values.showAlert && <Alert />}
+
           <FormRow 
             type='text' 
             name='name' 

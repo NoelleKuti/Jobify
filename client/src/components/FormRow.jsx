@@ -1,8 +1,8 @@
-const FormRow = ({type, name, value, handleChange, labelText}) => {
+const FormRow = ({type, name, value, handleChange}) => {
   return (
-    <div className='formRow'>
+    <div className='form-row'>
         <label htmlFor={name} className='form-label'>
-            {labelText || name}
+            {name}
         </label>
         <input
             type={type}
