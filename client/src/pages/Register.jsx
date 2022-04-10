@@ -10,14 +10,14 @@ const initialState = {
   email: '',
   password: '',
   isMember: true,
-  showAlert: false
 }
 
 const Register = () => {
-  const state= useAppContext();
-  console.log(state);
-
+ 
   const [values, setValues] = useState(initialState);
+  //global state and useNavigate
+  const {isLoading, showAlert} = useAppContext();
+  
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value})
@@ -37,7 +37,7 @@ const Register = () => {
         <form className='form' onSubmit={onSubmit}>
           <Logo />
           <h3>{values.isMember ? 'Login' : 'Register'}</h3>
-          {values.showAlert && <Alert />}
+          {showAlert && <Alert />}
 
           {!values.isMember && (
             <FormRow 
