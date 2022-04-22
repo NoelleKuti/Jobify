@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react"
+import React, { useState, useReducer, useContext } from "react"
 import reducer from "./reducer"
 import { DISPLAY_ALERT } from "./actions"
 
@@ -12,10 +12,10 @@ const initialState = {
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(initialState)
+    const [state, setState] = useReducer(reducer, initialState)
 
     const displayAlert = () => {
-        dispatch({ type:DISPLAY_ALERT })
+        dispatch({ type : DISPLAY_ALERT })
     }
 
     return (
