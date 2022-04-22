@@ -1,6 +1,7 @@
 import React, { useState, useReducer, useContext } from "react"
 import reducer from "./reducer"
 import { DISPLAY_ALERT } from "./actions"
+import { toHaveFormValues } from "@testing-library/jest-dom/dist/matchers"
 
 const initialState = {
     isLoading: false,
@@ -9,14 +10,15 @@ const initialState = {
     alertType: '',
 }
 
-const AppContext = React.createContext()
+const AppContext = React.createContext(undefined)
 
 const AppProvider = ({ children }) => {
-    const [state, setState] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, initialState)
 
     const displayAlert = () => {
         dispatch({ type : DISPLAY_ALERT })
     }
+    
 
     return (
         <AppContext.Provider 
