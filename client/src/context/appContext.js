@@ -1,6 +1,6 @@
 import React, { useState, useReducer, useContext, createContext } from "react"
 import reducer from "./reducer"
-import { DISPLAY_ALERT } from "./actions"
+import { CLEAR_ALERT, DISPLAY_ALERT } from "./actions"
 import { toHaveFormValues } from "@testing-library/jest-dom/dist/matchers"
 
 const initialState = {
@@ -17,7 +17,20 @@ const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const displayAlert = () => {
-        dispatch({ type: DISPLAY_ALERT })
+        // @ts-ignore
+        dispatch({ 
+            type: DISPLAY_ALERT 
+        })
+        clearAlert();
+    }
+
+    const clearAlert = () => {
+        setTimeout(() => {
+            // @ts-ignore
+            dispatch({
+                type: CLEAR_ALERT
+            })
+        }, 3000)
     }
     
     return (
