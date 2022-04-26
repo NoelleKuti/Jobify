@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from "react"
+import React, { useState, useReducer, useContext, createContext } from "react"
 import reducer from "./reducer"
 import { DISPLAY_ALERT } from "./actions"
 import { toHaveFormValues } from "@testing-library/jest-dom/dist/matchers"
@@ -10,16 +10,16 @@ const initialState = {
     alertType: '',
 }
 
-const AppContext = React.createContext(undefined)
+const AppContext = createContext(initialState);
 
 const AppProvider = ({ children }) => {
+
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const displayAlert = () => {
-        dispatch({ type : DISPLAY_ALERT })
+        dispatch({ type: DISPLAY_ALERT })
     }
     
-
     return (
         <AppContext.Provider 
             value={{ 
@@ -31,7 +31,6 @@ const AppProvider = ({ children }) => {
         </AppContext.Provider>
     )
 }
-
 
 
 const useAppContext = () => {
