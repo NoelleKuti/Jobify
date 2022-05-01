@@ -1,1 +1,32 @@
-{}
+{
+  "name": "nk-jobify",
+  "description": "created by **NOELLE KUTI**  with guidance from **JOHN SMILGA**'s :",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "history": "^5.3.0",
+    "js-tokens": "^4.0.0",
+    "react": "^18.0.0",
+    "loose-envify": "^1.4.0",
+    "react-dom": "^18.0.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "scheduler": "^0.21.0",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoelleKuti/Jobify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NoelleKuti/Jobify/issues"
+  },
+  "homepage": "https://github.com/NoelleKuti/Jobify#readme"
+}
