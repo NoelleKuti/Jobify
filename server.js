@@ -4,8 +4,8 @@ dotenv.config();
 const app = express();
 
 //routers
-import authRouter from './routes/authRouter.js';
-import jobsRouter from './routes/jobsRouter.js';
+import authRouter from './routes/authRoutes.js';
+import jobsRouter from './routes/jobsRoutes.js';
 
 // db and authenticateUser
 import connectDB from './db/connect.js';
