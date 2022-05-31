@@ -4,7 +4,8 @@ dotenv.config();
 const app = express();
 
 //routers
-import authRouter from './routes/authRoutes.js'
+import authRouter from './routes/authRouter.js';
+import jobsRouter from './routes/jobsRouter.js';
 
 // db and authenticateUser
 import connectDB from './db/connect.js';
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/jobs', jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware)
