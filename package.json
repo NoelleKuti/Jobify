@@ -16,7 +16,8 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "regenerator-runtime": "^0.13.9",
-    "scheduler": "^0.21.0"
+    "scheduler": "^0.21.0",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

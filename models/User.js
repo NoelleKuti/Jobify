@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import validator from 'validator'
 
 const UserSchema = new mongoose.Schema({
     name: { 
@@ -12,6 +13,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide email'], 
         //ensures someone cannot sign up with a username that already exists. NOT technically a validator.
+        validate: {
+            validator: validator.isEmail,
+            message: 'Please provide a valid email'
+        },
         unique: true,
     },
     password: { 
