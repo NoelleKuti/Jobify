@@ -1,5 +1,5 @@
 import { initialState } from './appContext'
-import { DISPLAY_ALERT, CLEAR_ALERT } from './actions'
+import { DISPLAY_ALERT, CLEAR_ALERT, REGISTER_USER_BEGIN, REGISTER_USER_SUCCESS, REGISTER_USER_ERROR } from './actions'
 
 const reducer = (state, action) => {
     
@@ -20,6 +20,13 @@ const reducer = (state, action) => {
             alertText: '',
         }
     }
+
+	if (action.type === REGISTER_USER_BEGIN) {
+		return {
+			...state,
+			
+		}
+	}
     throw new Error(`no such action : ${action.type}`);
 }
 
