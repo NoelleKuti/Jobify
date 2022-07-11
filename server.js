@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import 'express-async-errors'
 import 'http-status-codes'
 
+
 dotenv.config();
 const app = express();
 
@@ -18,10 +19,11 @@ import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 
 app.use(express.json());
-
+import cors from 'cors'
+app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Welcome!');
+    res.json({msg: 'Welcome!'});
 })
 
 app.use('/api/v1/auth', authRoutes);
