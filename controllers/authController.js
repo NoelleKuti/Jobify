@@ -27,7 +27,8 @@ const login = async (req,res) => {
 	if (!email || !password) {
 		throw new BadRequestError('Please provide all values');
 	}
-	const user = await findOne({email});
+	//the .select(+password) is because in the User model we set password select: false so that the password won't be exposed during api calls. Unfortunately this also means for our login we cannot reach it unless we override using .select(+password)
+	const user = await findOne({email}).select('+password');
 	if (!user) {
 		throw new UnauthenticatedError('Invalid Credentials');
 	} 
