@@ -44,7 +44,7 @@ const registerUser = async (currentUser) => {
 	})
 	try {
 		const response = await axios.post('/api/v1/auth/register', currentUser);
-		console.log(response);
+		//console.log(response);
 		
 		const { user, token, location } = response.data 
 		// @ts-ignore
@@ -58,7 +58,7 @@ const registerUser = async (currentUser) => {
 		})
 		// local storage later
 	} catch (error) {
-		console.log(error.response);
+		//console.log(error.response);
 		// @ts-ignore 
 		dispatch({
 			type: REGISTER_USER_ERROR,
