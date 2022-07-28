@@ -19,7 +19,16 @@ const register = async (req, res) => {
     
 	const token = user.createJWT();
     
-	res.status(StatusCodes.CREATED).json({ user:{email: user.email, lastName: user.lastName, location: user.location, name: user.name}, token });
+	res.status(StatusCodes.CREATED).json({ 
+		user: {
+			email: user.email, 
+			lastName: user.lastName, 
+			location: user.location, 
+			name: user.name
+		}, 
+		token,
+		location: user.location, 
+	});
 }
 
 const login = async (req,res) => {
@@ -39,6 +48,9 @@ const login = async (req,res) => {
 		throw new UnauthenticatedError('Invalid Credentials');
 	}
 	
+	const token = user.createJWT();
+	user.password = undefined;
+	res.status(StatusCodes.OK).json({ user, token, location: userLocation});
 	res.send('login user');
 }
 
