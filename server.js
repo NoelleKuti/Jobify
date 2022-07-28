@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import 'express-async-errors'
 import 'http-status-codes'
+import morgan from 'morgan'
 
 
 dotenv.config();
@@ -17,6 +18,10 @@ import connectDB from './db/connect.js';
 // middleware
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
+
+if (process.env.NODE_ENV !== 'production') {
+	app.use(morgan('dev'));
+}
 
 app.use(express.json());
 import cors from 'cors'
