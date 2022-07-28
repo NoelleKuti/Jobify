@@ -83,6 +83,9 @@ const AppProvider = ({ children }) => {
 		clearAlert();
 	}
     
+	const loginUser = async (currentUser) => {
+		console.log(currentUser);
+	}
 
     return (
         <AppContext.Provider 
@@ -90,7 +93,8 @@ const AppProvider = ({ children }) => {
                 ...state,
                 displayAlert,
 				clearAlert,
-				registerUser, 
+				registerUser,
+				loginUser, 
             }}
         >
             { children }

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Logo, FormRow, Alert } from '../components'
 import Wrapper from '../assets/wrappers/RegisterPage'
 import { useAppContext } from '../context/appContext' 
-import {REGISTER_USER_BEGIN} from 'context/actions'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -19,7 +18,7 @@ const Register = () => {
 	
 	const [values, setValues] = useState(initialState);
   
-	const { user, isLoading, showAlert, displayAlert, registerUser } = useAppContext();
+	const { user, isLoading, showAlert, displayAlert, registerUser, loginUser } = useAppContext();
 
 	const handleChange = (e) => {
     	setValues({ ...values, [e.target.name]: e.target.value})
@@ -35,7 +34,7 @@ const Register = () => {
    		const currentUser = { name, email, password }
    		
 		if (isMember) {
-	 		console.log('already a member')
+	 		loginUser(currentUser);
    		} else {
 	 		registerUser(currentUser)
    		}  
