@@ -37,7 +37,7 @@ const login = async (req,res) => {
 		throw new BadRequestError('Please provide all values');
 	}
 	//the .select(+password) is because in the User model we set password select: false so that the password won't be exposed during api calls. Unfortunately this also means for our login we cannot reach it unless we override using .select(+password)
-	const user = await findOne({email}).select('+password');
+	const user = await User.findOne({email}).select('+password');
 	if (!user) {
 		throw new UnauthenticatedError('Invalid Credentials');
 	} 
@@ -50,7 +50,7 @@ const login = async (req,res) => {
 	
 	const token = user.createJWT();
 	user.password = undefined;
-	res.status(StatusCodes.OK).json({ user, token, location: userLocation});
+	res.status(StatusCodes.OK).json({ user, token, location: user.location});
 	res.send('login user');
 }
 

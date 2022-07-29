@@ -1,4 +1,4 @@
-import CustomAPIError from "./custom-api";
+import CustomAPIError from "./custom-api.js";
 
 export default class UnauthenticatedError extends CustomAPIError {
 	constructor(message) {
