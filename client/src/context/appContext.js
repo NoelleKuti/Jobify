@@ -84,7 +84,6 @@ const AppProvider = ({ children }) => {
 	}
     
 	const loginUser = async (currentUser) => {
-		console.log(currentUser);
 		//@ts-ignore
 		dispatch({
 			type: LOGIN_USER_BEGIN,
@@ -97,6 +96,7 @@ const AppProvider = ({ children }) => {
 				type: LOGIN_USER_SUCCESS,
 				payload: { user, token, location }
 			});
+			addUserToLocalStorage({ user, token, location });
 		} catch (error) {
 			//@ts-ignore
 			dispatch({
