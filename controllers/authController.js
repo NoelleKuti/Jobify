@@ -1,5 +1,4 @@
 import User from "../models/User.js";
-import { StatusCodes } from "http-status-codes";
 import { BadRequestError, UnauthenticatedError } from "../errors/index.js";
 
 const register = async (req, res) => {
@@ -41,7 +40,6 @@ const login = async (req,res) => {
 	if (!user) {
 		throw new UnauthenticatedError('Invalid Credentials');
 	} 
-	console.log(user);
 
 	const isPasswordCorrect = await user.comparePassword(password);
 	if (!isPasswordCorrect) {

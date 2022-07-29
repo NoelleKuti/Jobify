@@ -29,7 +29,7 @@ const reducer = (state, action) => {
 	}
 
 	if (action.type === REGISTER_USER_SUCCESS) {
-		const { token, user, location, userLocation, } = action.payload;
+		const { token, user, location } = action.payload;
 
 		return {
 			...state,
